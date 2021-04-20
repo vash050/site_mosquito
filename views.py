@@ -9,6 +9,7 @@ class IndexView:
 
 class AboutView:
     def __call__(self, request):
+        print(request)
         output = render('contact.html')
         return '200 OK', [bytes(output, encoding='utf-8')]
 
