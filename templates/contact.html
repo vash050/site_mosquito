@@ -1,85 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <!--    <link rel="stylesheet" href="../static/css.css"/>-->
-    <style>
-        @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+{% extends "base.html" %}
 
-        .nesolestag-enadenud {
-            width: 615px;
-            margin: 0 auto;
-        }
+{% block title %}
+О нас
+{% endblock %}
 
-        .kesednsoled:after,
-        .kesednsoled:before {
-            content: ".";
-            display: block;
-            overflow: hidden;
-            visibility: hidden;
-            font-size: 0;
-            line-height: 0;
-            width: 0;
-            height: 0;
-            clear: both;
-        }
+{% block style %}
+{% include 'static/css.html' %}
+{% endblock %}
 
-        .ico-wrap {
-            color: #a612d4;
-            width: 48px;
-            height: 48px;
-            margin: 30px 18px 5px 5px;
-            display: block;
-            text-align: center;
-            font-size: 25px;
-            border: 2px solid #9d1cb7;
-            float: left;
-            border-radius: 30px;
-        }
+{% block main_menu %}
+    {% include 'includes/inc__main_menu.html' %}
+{% endblock %}
 
-        .ico-contact {
-            line-height: 1.9 !important;
-        }
-
-        .meanous-andscoev {
-            float: left;
-            margin-bottom: 20px;
-        }
-
-        .aio-icon-title {
-            font-size: 16px;
-            color: #950c96;
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        .fff {
-            width: 615px;
-            margin: 0 auto;
-        }
-
-        .fbut {
-            margin: 20px 250px;
-        }
-
-        @media (max-width: 767px) {
-            .meanous-andscoev,
-            .ico-wrap {
-                float: none;
-                text-align: center;
-            }
-
-            .ico-wrap {
-                margin: 0 auto 15px auto;
-            }
-
-        }
-    </style>
-</head>
-<body>
+{% block body %}
 <div class="nesolestag-enadenud">
-    <h3 style="text-align:center;">Контакты</h3>
+    <h3>Контакты</h3>
 
     <div class="ico-wrap"><i class="fa fa-map-marker ico-contact"></i>
     </div>
@@ -96,7 +31,7 @@
     <div class="ico-wrap"><i class="fa fa-clock-o ico-contact"></i>
     </div>
     <div class="meanous-andscoev">
-        <h4 class="aio-icon-title">График работы складов и офисов компании:</h4>
+        <h4 class="aio-icon-title">График работы:</h4>
         <div class="aio-icon-description">
             пн.-сб. с 10:00 до 21:00, с перерывом на обед
             <br>Без выходных
@@ -141,5 +76,4 @@
         <input type="submit" value="Отправить" class="fbut">
     </form>
 </div>
-</body>
-</html>
+{% endblock %}
