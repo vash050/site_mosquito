@@ -3,24 +3,15 @@ from mosquito_framework.templator import render
 
 class IndexView:
     def __call__(self, request):
-        output = render('index.html')
-        return '200 OK', [bytes(output, encoding='utf-8')]
+        return '200 OK', render('index.html', data=request.get('data', None))
 
 
 class AboutView:
     def __call__(self, request):
-        print(request)
-        output = render('contact.html')
-        return '200 OK', [bytes(output, encoding='utf-8')]
+        return '200 OK', render('contact.html')
 
 
-class NotFoundPage404View:
+class NotFound404View:
     def __call__(self, request):
-        print(request)
-        return '404 ERROR', [b'404 PAGE NOT FOUND']
+        return '404 WHAT', '404 PAGE Not Found'
 
-
-class Other:
-    def __call__(self, request):
-        print(request)
-        return '200 OK', [b'<h1>other</h1>']

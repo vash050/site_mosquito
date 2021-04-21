@@ -1,7 +1,7 @@
+from mosquito_framework.main import Mosquito
+from url import routes, fronts
 from wsgiref.simple_server import make_server
 
-from mosquito_framework.main import Mosquito, fronts
-from url import routes
 
 application = Mosquito(routes, fronts)
 
