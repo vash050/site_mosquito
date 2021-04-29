@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}
+Расписание
+{% endblock %}
+
+{% block style %}
+    {% include 'static/styles.css' %}
+{% endblock %}
+
+{% block main_menu %}
+{% include 'includes/inc__main_menu.html' %}
+{% endblock %}
+
+{% block body %}
+<h3>Расписание</h3>
+<h3>Дата: </h3>
+<table>
+    <tr>
+        <th>Курс</th>
+        <th>старт обучения</th>
+        <th>длительность обучения</th>
+        <th>цена</th>
+        <th>свободные места</th>
+    </tr>
+    <tr>
+        <td>Основы Python</td>
+        <td>01.05</td>
+        <td>1 месяц</td>
+        <td>10 тыс. рублей</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>Основы JS</td>
+        <td>01.05</td>
+        <td>1 месяц</td>
+        <td>10 тыс. рублей</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>Основы C++</td>
+        <td>01.05</td>
+        <td>1 месяц</td>
+        <td>10 тыс. рублей</td>
+        <td>8</td>
+    </tr>
+    <tr>
+        <td>Основы Dart</td>
+        <td>01.05</td>
+        <td>1 месяц</td>
+        <td>10 тыс. рублей</td>
+        <td>2</td>
+    </tr>
+</table>
+</br>
+<h3>Записаться на курс</h3>
+<form action="/" method="post">
+    <input type="text" name="fio" placeholder="Укажите ФИО">
+    <input type="text" name="course" placeholder="курс">
+    <input type="text" name="email" placeholder="Укажите e-mail">
+    <input type="submit" value="Отправить">
+</form>
+
+{% endblock %}
