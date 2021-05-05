@@ -31,5 +31,13 @@
             </li>
             {% endfor %}
         </ul>
+    {{students}}
+     <ul>
+            {% for student in students %}
+            <li>
+                {{student.name}}
+            </li>
+            {% endfor %}
+        </ul>
 </div>
 {% endblock %}

@@ -1,9 +1,16 @@
 import copy
 import quopri
 
+from patterns.behavioral_patterns import ConsoleWriter, Subject, EmailNotifier, SmsNotifier
+
+email_notifier = EmailNotifier()
+sms_notifier = SmsNotifier()
+subject = Subject()
+
 
 class User:
-    pass
+    def __init__(self, name=None):
+        self.name = name
 
 
 class Teacher(User):
@@ -23,8 +30,8 @@ class UserFactory:
 
     # паттерн фабричный метод
     @classmethod
-    def create(cls, type_):
-        return cls.types[type_]()
+    def create(cls, type_, name):
+        return cls.types[type_](name)
 
 
 # паттерн прототип
@@ -39,6 +46,14 @@ class Course(CoursePrototype):
         self.name = name
         self.category = category
         self.category.courses.append(self)
+        self.students = []
+
+    def add_student(self, student):
+        self.students.append(student)
+        subject.observers.append(student)
+        subject.notify()
+        # email_notifier.update(self.students)
+        # sms_notifier.update(self.students)
 
 
 class WebinarCourse(Course):
@@ -86,8 +101,9 @@ class Engine:
         self.categories = []
 
     @staticmethod
-    def create_user(type_):
-        return UserFactory.create(type_)
+    def create_user(type_, name):
+        print(type_, name)
+        return UserFactory.create(type_, name)
 
     @staticmethod
     def create_category(name, category=None):
@@ -109,6 +125,11 @@ class Engine:
             if el.name == name:
                 return el
         return None
+
+    def get_student(self, name):
+        for el in self.students:
+            if el.name == name:
+                return el
 
     @staticmethod
     def decode_value(val):
@@ -139,9 +160,10 @@ class SingletonByName(type):
 
 class Logger(metaclass=SingletonByName):
 
-    def __init__(self, name):
+    def __init__(self, name, writer=ConsoleWriter()):
         self.name = name
+        self.writer = writer
 
-    @staticmethod
-    def log(text):
-        print('log--->', text)
+    def log(self, text):
+        text = f'log---> {text}'
+        self.writer.write(text)

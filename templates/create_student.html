@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+создать студента
+{% endblock %}
+
+{% block style %}
+{% include 'static/styles.css' %}
+{% endblock %}
+
+{% block main_menu %}
+{% include 'includes/inc__main_menu.html' %}
+{% endblock %}
+
+{% block body %}
+<div>
+    <ul>
+        <li>
+            <a href="/student-list/">Список студентов</a>
+        </li>
+        <li>
+            <a href="/add-student/">Добавить студента на курс</a>
+        </li>
+    </ul>
+</div>
+<div>
+    <h1>Создание студента</h1>
+    <form method="post">
+        <input type="text" name="name" placeholder="Имя">
+        <button type="submit">Сохранить</button>
+    </form>
+</div>
+{% endblock %}
