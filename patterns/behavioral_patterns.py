@@ -1,13 +1,9 @@
-import json
-
 import jsonpickle
 
 from mosquito_framework.templator import render
 
+
 # паттерн наблюдатель
-from patterns.structural_patterns import Debug
-
-
 class Observer:
     def update(self, subject):
         pass
@@ -20,7 +16,7 @@ class Subject:
     def notify(self):
         student = self.observers[-1]
         for el in self.observers:
-            print(f'message to use {el.name}')
+            print(f'message to user {el.name}')
             sms = SmsNotifier()
             email = EmailNotifier()
             sms.update(subject=student)

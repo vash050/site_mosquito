@@ -183,5 +183,9 @@ class AddStudentByCourseCreateView(CreateView):
 class CourseApi:
     @Debug(name='CourseApi')
     def __call__(self, request):
-        print(site.courses)
+        for el in site.courses:
+            print(f'course: {el.name}')
+            for elem in el.students:
+                print(f'user: {elem.name}')
+        print(f'course category: {site.categories}')
         return '200 OK', BaseSerializer(site.courses).save()
